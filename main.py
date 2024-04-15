@@ -27,10 +27,11 @@ class TaskManager:
         else:
             print("Invalid task index.")
 
-    def write_tasks(self):
-        """
-        This method writes the list of tasks to a file
-        """
+    def write_tasks(self, number):
+        for i in range(number):
+            description = input("Enter task description: ")
+            self.add_task(description)
+        print("Added")
         pass
 
 def main():
@@ -41,7 +42,8 @@ def main():
         print("1. Add Task")
         print("2. View Tasks")
         print("3. Mark Task as Completed")
-        print("4. Exit")
+        print("4. Add Multiple Tasks")
+        print("5. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -55,6 +57,9 @@ def main():
             task_index = int(input("Enter task index to mark as completed: "))
             task_manager.mark_task_completed(task_index)
         elif choice == "4":
+            number = input("Enter number of tasks: ")
+            task_manager.write_tasks(number)
+        elif choice == "5":
             print("Exiting program.")
             break
         else:
